@@ -1,0 +1,10 @@
+!
+service-password encryption
+hostname {{ item.hostname}}
+enable secret class
+username cisco password cisco
+interface loopback 0
+  ip address {{ item.iploopback}}
+
+interface vlan {{ item.num }}
+  ip address {{ item.ipsvi }}
