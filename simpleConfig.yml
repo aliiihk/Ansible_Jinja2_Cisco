@@ -1,0 +1,15 @@
+---
+- name: Create Templates
+  hosts: localhost
+  gather_facts: false
+  connection: local
+
+  tasks: 
+    - name: Create textfiles
+      template: src=./templates/createConfigs.j2 dest=./config_files/{{ item.hostname}}.txt
+
+      with_items:
+        - { hostname: R1, iploopback: '1.1.1.1 255.255.255.255', num: 1, ipsvi: '11.11.11.11 255.255.255.0'}
+        - { hostname: R2, iploopback: '2.2.2.2 255.255.255.255', num: 2, ipsvi: '22.22.22.22 255.255.255.0'}
+        - { hostname: R3, iploopback: '3.3.3.3 255.255.255.255', num: 3, ipsvi: '33.33.33.33 255.255.255.0'}
+        - { hostname: R4, iploopback: '4.4.4.4 255.255.255.255', num: 4, ipsvi: '44.44.44.44 255.255.255.0'}
