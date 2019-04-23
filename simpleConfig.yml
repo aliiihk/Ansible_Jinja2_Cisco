@@ -6,7 +6,7 @@
 
   tasks: 
     - name: Create textfiles
-      template: src=./templates/createConfigs.j2 dest=./config_files/{{ item.hostname}}.txt
+      template: src=./templates/simpleConfigs.j2 dest=./config_files/{{ item.hostname}}.txt
 
       with_items:
         - { hostname: R1, iploopback: '1.1.1.1 255.255.255.255', num: 1, ipsvi: '11.11.11.11 255.255.255.0'}
